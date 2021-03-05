@@ -4,6 +4,7 @@ import { Home } from "./Home"
 
 import { LocationProvider } from "./locations/LocationProvider"
 import { LocationList } from "./locations/LocationList"
+import { LocationDetail } from "./locations/LocationDetail"
 
 export const ApplicationViews = () => {
     return (
@@ -15,6 +16,9 @@ export const ApplicationViews = () => {
             <LocationProvider>
                 <Route exact path="/locations">
                     <LocationList />
+                </Route>
+                <Route path ="/locations/detail/:locationId(\d+)">
+                    <LocationDetail />
                 </Route>
             </LocationProvider>
         </>
