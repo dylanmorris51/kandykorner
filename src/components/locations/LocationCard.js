@@ -9,6 +9,8 @@ export const LocationCard = ({location}) => (
                     {location.name}
                 </Link>
             </h3>
+            <address className="location__address">{location.address}</address>
+            <small className="location__accessible">{location.accessible ? "Handicap Accessbile!" : "Non-Handicap Accessible"} </small>
         </section>
 
 )
