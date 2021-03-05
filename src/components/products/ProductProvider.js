@@ -7,7 +7,7 @@ export const ProductProvider = (props) => {
     const [products, setProducts] = useState([])
 
     const getProducts = () => {
-        return fetch("http://localhost:8088/products?_expand=productType")
+        return fetch("http://localhost:8088/products")
         .then(res => res.json())
         .then(setProducts)
     }

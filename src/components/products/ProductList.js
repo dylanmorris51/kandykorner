@@ -3,17 +3,19 @@ import { ProductContext } from "./ProductProvider"
 import { ProductCard } from "./ProductCard"
 import { useHistory } from "react-router-dom"
 import "./Product.css"
+import { ProductTypeContext } from "../productTypes/ProductTypeProvider"
 
 export const ProductList = () => {
     
     const { products, getProducts } = useContext(ProductContext)
+    const { productTypes, getProductTypes} = useContext(ProductTypeContext)
 
     const [product, setProducts] = useState([])
 
     const history = useHistory()
 
     useEffect(() => {
-        getProducts()
+        getProductTypes().then(getProducts)
     }, [])
 
     return (
@@ -22,7 +24,8 @@ export const ProductList = () => {
             <div>
                 {
                     products.map(product => {
-                        return <ProductCard key={product.id} product={product} />
+                        const productType = productTypes.find(type => type.id === product.productTypeId)
+                        return <ProductCard key={product.id} product={product} productType={productType} />
                     })
                 }
             </div>

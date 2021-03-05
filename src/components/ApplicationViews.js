@@ -7,6 +7,7 @@ import { LocationList } from "./locations/LocationList"
 import { LocationDetail } from "./locations/LocationDetail"
 import { ProductProvider } from "./products/ProductProvider"
 import { ProductList } from "./products/ProductList"
+import { ProductTypeProvider } from "./productTypes/ProductTypeProvider"
 
 
 
@@ -17,20 +18,22 @@ export const ApplicationViews = () => {
                 <Home />
             </Route>
 
-            <ProductProvider>
-                <LocationProvider>
-                    <Route exact path="/locations">
-                        <LocationList />
-                    </Route>
-                    <Route path ="/locations/detail/:locationId(\d+)">
-                        <LocationDetail />
-                    </Route>
+            <ProductTypeProvider>
+                <ProductProvider>
+                    <LocationProvider>
+                        <Route exact path="/locations">
+                            <LocationList />
+                        </Route>
+                        <Route path ="/locations/detail/:locationId(\d+)">
+                            <LocationDetail />
+                        </Route>
 
-                    <Route exact path="/products">
-                        <ProductList />
-                    </Route>
-                </LocationProvider>
-            </ProductProvider>
+                        <Route exact path="/products">
+                            <ProductList />
+                        </Route>
+                    </LocationProvider>
+                </ProductProvider>
+            </ProductTypeProvider>
         </>
         )
 }
