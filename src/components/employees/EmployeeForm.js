@@ -8,7 +8,7 @@ export const EmployeeForm = () => {
     const {addEmployee, getEmployeeById, updateEmployee } = useContext(EmployeeContext)
     const { locations, getLocations } = useContext(LocationContext)
 
-    const [employee, setEmplopyee] = useState({
+    const [employee, setEmployee] = useState({
         name: "",
         locationId: 0,
         position: "",
@@ -30,7 +30,7 @@ export const EmployeeForm = () => {
 
         newEmployee[event.target.id] = selectedVal
 
-        setEmplopyee(newEmployee)
+        setEmployee(newEmployee)
     }
 
     const handleSaveEmployee = () => {
@@ -65,7 +65,7 @@ export const EmployeeForm = () => {
             if (employeeId) {
                 getEmployeeById(employeeId)
                     .then(employee => {
-                        setEmplopyee(employee)
+                        setEmployee(employee)
                         setIsLoading(false)
                     })
             } else {
@@ -100,25 +100,25 @@ export const EmployeeForm = () => {
             <fieldset>
                 <div className="form-group">
                     <label htmlFor="position">Employee Position:</label>
-                    <input type="text" id="position" required autoFocus className="form-control" onChange={handleControlledInputChange} placeholder="Employee position" value={employee.position} />
+                    <input type="text" id="position" required className="form-control" onChange={handleControlledInputChange} placeholder="Employee position" value={employee.position} />
                 </div>
             </fieldset>
             <fieldset>
                 <div className="form-group">
                     <label htmlFor="manager">Management?:</label>
-                    <input type="text" id="manager" required autoFocus className="form-control" onChange={handleControlledInputChange} placeholder="Yes or No" value={employee.manager} />
+                    <input type="text" id="manager" required className="form-control" onChange={handleControlledInputChange} placeholder="Yes or No" value={employee.manager} />
                 </div>
             </fieldset>
             <fieldset>
                 <div className="form-group">
                     <label htmlFor="status">Employee status:</label>
-                    <input type="text" id="status" required autoFocus className="form-control" onChange={handleControlledInputChange} placeholder="Employee status" value={employee.status} />
+                    <input type="text" id="status" required className="form-control" onChange={handleControlledInputChange} placeholder="Employee status" value={employee.status} />
                 </div>
             </fieldset>
             <fieldset>
                 <div className="form-group">
-                    <label htmlFor="rate">Employee rate:</label>
-                    <input type="text" id="rate" required autoFocus className="form-control" onChange={handleControlledInputChange} placeholder="Enter hourly rate" value={employee.rate} />
+                    <label htmlFor="hourlyRate">Employee rate:</label>
+                    <input type="text" id="hourlyRate" required className="form-control" onChange={handleControlledInputChange} placeholder="Enter hourly rate" value={employee.hourlyRate} />
                 </div>
             </fieldset>
             <button className="btn btn-primary"
