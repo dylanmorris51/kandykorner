@@ -5,6 +5,10 @@ import { Home } from "./Home"
 import { LocationProvider } from "./locations/LocationProvider"
 import { LocationList } from "./locations/LocationList"
 import { LocationDetail } from "./locations/LocationDetail"
+import { ProductProvider } from "./products/ProductProvider"
+import { ProductList } from "./products/ProductList"
+
+
 
 export const ApplicationViews = () => {
     return (
@@ -12,15 +16,21 @@ export const ApplicationViews = () => {
             <Route exact path="/">
                 <Home />
             </Route>
-    
-            <LocationProvider>
-                <Route exact path="/locations">
-                    <LocationList />
-                </Route>
-                <Route path ="/locations/detail/:locationId(\d+)">
-                    <LocationDetail />
-                </Route>
-            </LocationProvider>
+
+            <ProductProvider>
+                <LocationProvider>
+                    <Route exact path="/locations">
+                        <LocationList />
+                    </Route>
+                    <Route path ="/locations/detail/:locationId(\d+)">
+                        <LocationDetail />
+                    </Route>
+
+                    <Route exact path="/products">
+                        <ProductList />
+                    </Route>
+                </LocationProvider>
+            </ProductProvider>
         </>
         )
 }

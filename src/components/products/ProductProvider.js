@@ -24,7 +24,7 @@ export const ProductProvider = (props) => {
     }
 
     const getProductById = id => {
-        return fetch(`http://localhost:8088/products/${productId}`)
+        return fetch(`http://localhost:8088/products/${id}`)
         .then(res => res.json())
 
     }
@@ -39,7 +39,7 @@ export const ProductProvider = (props) => {
             })
         }
 
-        const deleteProduct = () => {
+        const deleteProduct = (productId) => {
             return fetch (`http://localhost:8088/products/${productId}`, {
             method: "DELETE"
         })
