@@ -97,6 +97,30 @@ export const EmployeeForm = () => {
                     </select>
                 </div>
             </fieldset>
+            <fieldset>
+                <div className="form-group">
+                    <label htmlFor="position">Employee Position:</label>
+                    <input type="text" id="position" required autoFocus className="form-control" onChange={handleControlledInputChange} placeholder="Employee position" value={employee.position} />
+                </div>
+            </fieldset>
+            <fieldset>
+                <div className="form-group">
+                    <label htmlFor="manager">Management?:</label>
+                    <input type="text" id="manager" required autoFocus className="form-control" onChange={handleControlledInputChange} placeholder="Yes or No" value={employee.manager} />
+                </div>
+            </fieldset>
+            <fieldset>
+                <div className="form-group">
+                    <label htmlFor="status">Employee status:</label>
+                    <input type="text" id="status" required autoFocus className="form-control" onChange={handleControlledInputChange} placeholder="Employee status" value={employee.status} />
+                </div>
+            </fieldset>
+            <fieldset>
+                <div className="form-group">
+                    <label htmlFor="rate">Employee rate:</label>
+                    <input type="text" id="rate" required autoFocus className="form-control" onChange={handleControlledInputChange} placeholder="Enter hourly rate" value={employee.rate} />
+                </div>
+            </fieldset>
             <button className="btn btn-primary"
                 disabled={isLoading}
                 onClick={event => {
