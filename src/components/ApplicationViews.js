@@ -11,6 +11,7 @@ import { ProductTypeProvider } from "./productTypes/ProductTypeProvider"
 import { EmployeeProvider } from "./employees/EmployeeProvider"
 import { EmployeeList } from "./employees/EmployeeList"
 import { EmployeeDetail } from "./employees/EmployeeDetail"
+import { EmployeeForm } from "./employees/EmployeeForm"
 
 
 
@@ -43,6 +44,14 @@ export const ApplicationViews = () => {
 
                             <Route path="/employees/detail/:employeeId(\d+)">
                                 <EmployeeDetail />
+                            </Route>
+
+                            <Route path="/employees/edit/:employeeId(\d+)">
+                                <EmployeeForm />
+                            </Route>
+
+                            <Route path="/employees/create">
+                                <EmployeeForm />
                             </Route>
                         </LocationProvider>
                     </ProductProvider>

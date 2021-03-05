@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react"
-import { LocationContext } from "../location/LocationProvider"
+import { LocationContext } from "../locations/LocationProvider"
 import { useHistory, useParams } from "react-router-dom"
 import "./Employee.css"
 import { EmployeeContext, EmployeeProvider } from "./EmployeeProvider"
@@ -59,5 +59,53 @@ export const EmployeeForm = () => {
             }
         }
     }
+
+    useEffect(() => {
+        getLocations().then(()=>{
+            if (employeeId) {
+                getEmployeeById(employeeId)
+                    .then(employee => {
+                        setEmplopyee(employee)
+                        setIsLoading(false)
+                    })
+            } else {
+                setIsLoading(false)
+            }
+        })
+    }, [])
+
+    //TODO: Add the rest of the input fields to the form after connecting to AppViews and checking on DOM
+    return (
+        <form className="employeeForm">
+            <h2 className="employeeForm__title">{employeeId ? "Edit Employee" : "Add Employee"}</h2>
+            <fieldset>
+                <div className="form-group">
+                    <label htmlFor="name">Employee name:</label>
+                    <input type="text" id="name" required autoFocus className="form-control" onChange={handleControlledInputChange} placeholder="Employee name" value={employee.name} />
+                </div>
+            </fieldset>
+            <fieldset>
+                <div className="form-group">
+                    <label htmlFor="location">Assign to location: </label>
+                    <select value={employee.locationId} name="locationId" id="locationId" onChange={handleControlledInputChange} className="form-control" >
+                        <option value="0">Select a location</option>
+                        {locations.map(l => (
+                            <option key={l.id} value={l.id}>
+                                {l.name}
+                            </option>
+                        ))}
+                    </select>
+                </div>
+            </fieldset>
+            <button className="btn btn-primary"
+                disabled={isLoading}
+                onClick={event => {
+                    event.preventDefault()
+                    handleSaveEmployee()
+                }}>
+                {employeeId ? "Save Employee" : "Add Employee"}
+            </button>
+        </form>
+    )
 
 }
