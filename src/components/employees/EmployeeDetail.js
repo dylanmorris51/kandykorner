@@ -31,6 +31,7 @@ export const EmployeeDetail = () => {
     return (
         <section className="employee">
             <h3 className="employee__name">{employee.name}</h3>
+            <div className="employee__position">Position: {employee.position}</div>
             <div className="employee__location">{employee.location?.name}</div>
             <div className="employee__manager">Management: {employee.manager ? "Yes" : "No"}</div>
             <div className="employee__wage">Hourly: {employee.hourlyRate}</div>
