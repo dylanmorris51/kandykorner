@@ -8,7 +8,9 @@ import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
-    <KandyKorner />
+    <Router>
+      <KandyKorner />
+    </Router>
   </React.StrictMode>,
   document.getElementById('root')
 );
