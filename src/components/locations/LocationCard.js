@@ -1,6 +1,6 @@
 import React from "react"
 import { Link } from "react-router-dom"
-import "./Location.css"
+
 
 export const LocationCard = ({location}) => (
         <section className="location">
